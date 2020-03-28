@@ -4,17 +4,19 @@ using System.Globalization;
 
 namespace BaseClasses
 {
-    class Funcs
+    class Functions
     {
+        CultureInfo ci = new CultureInfo("en-US");
+
         public bool ValidateInfo()
         {
-            Console.WriteLine("Введите язык в формате: es-английский,fr-французский,ru-русский и т.д.");
-            string languange = Console.ReadLine();
+            Console.WriteLine("Введите язык в формате: en-английский,es-испанский,fr-французский,ru-русский ");
+            string language = Console.ReadLine();
 
 
             try
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(languange);//локально меняем язык windows на выбранный пользователем,так же здесь создаем объект CurrentCulture типа CultureInfo,передавая в конструктор languange строкового типа
+                ci = new CultureInfo(language);
             }
             catch (Exception ex)//обработка исключений всех типов
             {
@@ -28,9 +30,10 @@ namespace BaseClasses
         {
             DateTime now = new DateTime(2020, 1, 1);
 
+
             for (int i = 1; i <= 12; i++)
             {
-                Console.WriteLine(now.ToString("MMMM"));
+                Console.WriteLine(now.ToString("MMMM",ci));
                 now = now.AddMonths(1);
             }
 

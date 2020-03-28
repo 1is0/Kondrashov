@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Text;
 
 namespace BaseClasses
 {
-    class WorkWithClasses
+    class MainProgramm
     {
         static void Main()
         {
-            Funcs func=new Funcs();
+            Functions func=new Functions();
 
             Console.WriteLine("Выполнение 2 пункта: ");
 
@@ -14,13 +15,15 @@ namespace BaseClasses
             string f = Console.ReadLine();
 
             string[] slova = f.Split(' ', ',', '.', '!');//разбиваем строку на слова
-            string inverse = "";
+            StringBuilder inverse = new StringBuilder("");
             for (int i = slova.Length - 1; i >= 0; i--)//у каждого массива в c# есть метод .Length(этот метод возвращает кол-во элементов с отсчетом от 1,здесь же нужно от 0,т.к массив)
             {
-                inverse = inverse + " " + slova[i];
+                inverse.Append(slova[i]);
+                inverse.Append(" ");
             }
             Console.WriteLine(inverse);
             Console.Write("\n\n\n");
+
 
             Console.WriteLine("Выполнение 7 пункта: ");
 
