@@ -10,10 +10,10 @@ namespace UnsafeCode
     class MyDllImport
     {
         [DllImport("DllForUnsafeCode.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern int add(int a,int b);
+        public static extern int Add(int a,int b);
 
         [DllImport("DllForUnsafeCode.dll", CallingConvention = CallingConvention.StdCall)]
-        public static extern int sub(int a, int b);
+        public static extern int Sub(int a, int b);
 
         [DllImport("DllForUnsafeCode.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double Average(int n,double d1, double d2, double d3);
@@ -23,10 +23,10 @@ namespace UnsafeCode
         public static void DllTreatment()
         {
             int a = 10, b = 20;
-            int c=MyDllImport.add(a, b);
+            int c=MyDllImport.Add(a, b);
             Console.WriteLine("Dll Addition: {0}", c);
 
-            int d=MyDllImport.sub(a, b);
+            int d=MyDllImport.Sub(a, b);
             Console.WriteLine("Dll Substation: {0}", d);
 
             double cc1 = 10.0;

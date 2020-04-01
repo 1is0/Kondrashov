@@ -3,19 +3,17 @@
 using namespace std;
 
 __declspec(dllexport)
-int add(int a, int b)
+ extern "C" __declspec(dllexport)int __stdcall Add(int a, int b)
 {
 	return a+b;
 }
 
-__declspec(dllexport)
-int sub(int a, int b)
+extern "C" __declspec(dllexport) int __stdcall Sub(int a, int b)
 {
 	return a - b;
 }
 
-extern "C" __declspec(dllexport)
-double Average(int n, double a, ...)
+extern "C" __declspec(dllexport)double __cdecl Average(int n, double a, ...)
 {
 	va_list p;             //--объявление указателя
 	double sum = 0, count = 0;
