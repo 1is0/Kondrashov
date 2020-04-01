@@ -88,27 +88,29 @@ namespace Laboratory7
             RationalNumber RatNum2 = RationalNumber.GetFractionObjectFromString(num2);
             Console.WriteLine($"{RatNum2.ShowFull()}");
 
-            Console.WriteLine($"1. {RatNum1.FractionString()} > {RatNum2.FractionString()} = " + (RatNum1 > RatNum2));
+            Console.WriteLine("Operators overload: ");
+
+            Console.WriteLine($">. {RatNum1.FractionString()} > {RatNum2.FractionString()} = " + (RatNum1 > RatNum2));
             Console.WriteLine($"   {RatNum1.NumberString()} > {RatNum2.NumberString()} = " + (RatNum1 > RatNum2) + "\n");
-            Console.WriteLine($"2. {RatNum1.FractionString()} < {RatNum2.FractionString()} = " + (RatNum1 < RatNum2));
+            Console.WriteLine($"<. {RatNum1.FractionString()} < {RatNum2.FractionString()} = " + (RatNum1 < RatNum2));
             Console.WriteLine($"   {RatNum1.NumberString()} < {RatNum2.NumberString()} = " + (RatNum1 < RatNum2) + "\n");
-            Console.WriteLine($"3. {RatNum1.FractionString()} >= {RatNum2.FractionString()} = " + (RatNum1 >= RatNum2));
+            Console.WriteLine($">=. {RatNum1.FractionString()} >= {RatNum2.FractionString()} = " + (RatNum1 >= RatNum2));
             Console.WriteLine($"   {RatNum1.NumberString()} >= {RatNum2.NumberString()} = " + (RatNum1 >= RatNum2) + "\n");
-            Console.WriteLine($"4. {RatNum1.FractionString()} <= {RatNum2.FractionString()} = " + (RatNum1 <= RatNum2));
+            Console.WriteLine($"<=. {RatNum1.FractionString()} <= {RatNum2.FractionString()} = " + (RatNum1 <= RatNum2));
             Console.WriteLine($"   {RatNum1.NumberString()} <= {RatNum2.NumberString()} = " + (RatNum1 <= RatNum2) + "\n");
-            Console.WriteLine($"5. {RatNum1.FractionString()} == {RatNum2.FractionString()} = " + (RatNum1 == RatNum2));
+            Console.WriteLine($"==. {RatNum1.FractionString()} == {RatNum2.FractionString()} = " + (RatNum1 == RatNum2));
             Console.WriteLine($"   {RatNum1.NumberString()} == {RatNum2.NumberString()} = " + (RatNum1 == RatNum2) + "\n");
-            Console.WriteLine($"6. {RatNum1.FractionString()} != {RatNum2.FractionString()} = " + (RatNum1 != RatNum2));
+            Console.WriteLine($"!=. {RatNum1.FractionString()} != {RatNum2.FractionString()} = " + (RatNum1 != RatNum2));
             Console.WriteLine($"   {RatNum1.NumberString()} != {RatNum2.NumberString()} = " + (RatNum1 != RatNum2) + "\n");
-            Console.WriteLine($"7. {RatNum1.FractionString()} + {RatNum2.FractionString()} = " + (RatNum1 + RatNum2).FractionString());
+            Console.WriteLine($"+. {RatNum1.FractionString()} + {RatNum2.FractionString()} = " + (RatNum1 + RatNum2).FractionString());
             Console.WriteLine($"   {RatNum1.NumberString()} + {RatNum2.NumberString()} = " + (RatNum1 + RatNum2).FractionString() + "\n");
-            Console.WriteLine($"8. {RatNum1.FractionString()} - {RatNum2.FractionString()} = " + (RatNum1 - RatNum2).FractionString());
+            Console.WriteLine($"-. {RatNum1.FractionString()} - {RatNum2.FractionString()} = " + (RatNum1 - RatNum2).FractionString());
             Console.WriteLine($"   {RatNum1.NumberString()} - {RatNum2.NumberString()} = " + (RatNum1 - RatNum2).FractionString() + "\n");
-            Console.WriteLine($"9. {RatNum1.FractionString()} * {RatNum2.FractionString()} = " + (RatNum1 * RatNum2).FractionString());
+            Console.WriteLine($"*. {RatNum1.FractionString()} * {RatNum2.FractionString()} = " + (RatNum1 * RatNum2).FractionString());
             Console.WriteLine($"   {RatNum1.NumberString()} * {RatNum2.NumberString()} = " + (RatNum1 * RatNum2).FractionString() + "\n");
             if (RatNum2 != 0)
             {
-                Console.WriteLine($"10. {RatNum1.FractionString()} / {RatNum2.FractionString()} = " + (RatNum1 / RatNum2).FractionString());
+                Console.WriteLine($"/. {RatNum1.FractionString()} / {RatNum2.FractionString()} = " + (RatNum1 / RatNum2).FractionString());
                 Console.WriteLine($"   {RatNum1.NumberString()} / {RatNum2.NumberString()} = " + (RatNum1 / RatNum2).NumberString() + "\n");
             }
         }
