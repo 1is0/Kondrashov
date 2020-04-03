@@ -52,7 +52,7 @@ namespace Laboratory7
                 {
                     i++;
                 }
-                if (frac[i] == '0')
+                if (frac[i] == '0'&& frac.Length==1)
                 {
                     return false;
                 }
