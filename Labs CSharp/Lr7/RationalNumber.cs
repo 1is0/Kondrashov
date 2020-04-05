@@ -4,22 +4,22 @@ namespace Laboratory7
 {
     class RationalNumber : IComparable, IEquatable<RationalNumber>
     {
-        public int Nint { get; set; }
-        public uint Mnat { get; set; }
+        public int Numerator { get; set; }
+        public uint Denominator { get; set; }
         double rnumber;
 
         public RationalNumber()
         {
-            Nint = 0;
-            Mnat = 1;
+            Numerator = 0;
+            Denominator = 1;
             rnumber = 0;
         }
 
         public static RationalNumber operator +(RationalNumber tmp1, RationalNumber tmp2)
         {
             RationalNumber num = new RationalNumber();
-            num.Nint = (int)(tmp1.Mnat * tmp2.Mnat + tmp2.Nint * tmp1.Mnat);
-            num.Mnat = tmp1.Mnat * tmp2.Mnat;
+            num.Numerator = (int)(tmp1.Denominator * tmp2.Denominator + tmp2.Numerator * tmp1.Denominator);
+            num.Denominator = tmp1.Denominator * tmp2.Denominator;
             num.rnumber = tmp1.rnumber + tmp2.rnumber;
             return num;
         }
@@ -27,8 +27,8 @@ namespace Laboratory7
         public static RationalNumber operator -(RationalNumber tmp1, RationalNumber tmp2)
         {
             RationalNumber num = new RationalNumber();
-            num.Nint = (int)(tmp1.Nint * tmp2.Mnat - tmp2.Nint * tmp1.Mnat);
-            num.Mnat = tmp1.Mnat * tmp2.Mnat;
+            num.Numerator = (int)(tmp1.Numerator * tmp2.Denominator - tmp2.Numerator * tmp1.Denominator);
+            num.Denominator = tmp1.Denominator * tmp2.Denominator;
             num.rnumber = tmp1.rnumber - tmp2.rnumber;
             return num;
         }
@@ -36,8 +36,8 @@ namespace Laboratory7
         public static RationalNumber operator *(RationalNumber tmp1, RationalNumber tmp2)
         {
             RationalNumber num = new RationalNumber();
-            num.Nint = tmp1.Nint * tmp2.Nint;
-            num.Mnat = tmp1.Mnat * tmp2.Mnat;
+            num.Numerator = tmp1.Numerator * tmp2.Numerator;
+            num.Denominator = tmp1.Denominator * tmp2.Denominator;
             num.rnumber = tmp1.rnumber * tmp2.rnumber;
             return num;
         }
@@ -45,8 +45,8 @@ namespace Laboratory7
         public static RationalNumber operator /(RationalNumber tmp1, RationalNumber tmp2)
         {
             RationalNumber num = new RationalNumber();
-            num.Nint = (int)(tmp1.Nint * tmp2.Mnat);
-            num.Mnat = (uint)(tmp1.Mnat * tmp2.Nint);
+            num.Numerator = (int)(tmp1.Numerator * tmp2.Denominator);
+            num.Denominator = (uint)(tmp1.Denominator * tmp2.Numerator);
             num.rnumber = tmp1.rnumber / tmp2.rnumber;
             return num;
         }
@@ -145,7 +145,14 @@ namespace Laboratory7
 
         bool IEquatable<RationalNumber>.Equals(RationalNumber num)
         {
-            return this.rnumber == num.rnumber;
+            if(this.Numerator==num.Numerator && this.Denominator==num.Denominator)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         int IComparable.CompareTo(object obj)
@@ -171,7 +178,7 @@ namespace Laboratory7
 
         public string FractionString()
         {
-            return $"{Nint}/{Mnat}";
+            return $"{Numerator}/{Denominator}";
         }
 
         public string ShowFull()
@@ -191,8 +198,8 @@ namespace Laboratory7
             int count = -1;
             if (a % 10 == 0)
             {
-                obj.Nint = (int)a;
-                obj.Mnat = 1;
+                obj.Numerator = (int)a;
+                obj.Denominator = 1;
             }
             else
             {
@@ -202,8 +209,8 @@ namespace Laboratory7
                     count++;
                 }
                 a /= 10;
-                obj.Nint = (int)a;
-                obj.Mnat = (uint)Math.Pow(10, count);
+                obj.Numerator = (int)a;
+                obj.Denominator = (uint)Math.Pow(10, count);
 
             }
             return obj;
@@ -217,16 +224,16 @@ namespace Laboratory7
             {
                 string[] arr = str.Split('/');
 
-                obj.Nint = int.Parse(arr[0]);
-                obj.Mnat = uint.Parse(arr[1]);
-                obj.rnumber = obj.Nint / obj.Mnat;
+                obj.Numerator = int.Parse(arr[0]);
+                obj.Denominator = uint.Parse(arr[1]);
+                obj.rnumber = obj.Numerator / obj.Denominator;
             }
 
             catch
             {
-                obj.Nint = int.Parse(str);
-                obj.Mnat = 1;
-                obj.rnumber = obj.Nint / obj.Mnat;
+                obj.Numerator = int.Parse(str);
+                obj.Denominator = 1;
+                obj.rnumber = obj.Numerator / obj.Denominator;
             }
 
             return obj;
