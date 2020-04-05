@@ -6,13 +6,12 @@ namespace Laboratory7
     {
         public int Numerator { get; set; }
         public uint Denominator { get; set; }
-        double rnumber;
+        
 
         public RationalNumber()
         {
             Numerator = 0;
             Denominator = 1;
-            rnumber = 0;
         }
 
         public static RationalNumber operator +(RationalNumber tmp1, RationalNumber tmp2)
@@ -20,7 +19,6 @@ namespace Laboratory7
             RationalNumber num = new RationalNumber();
             num.Numerator = (int)(tmp1.Denominator * tmp2.Denominator + tmp2.Numerator * tmp1.Denominator);
             num.Denominator = tmp1.Denominator * tmp2.Denominator;
-            num.rnumber = tmp1.rnumber + tmp2.rnumber;
             return num;
         }
 
@@ -29,7 +27,6 @@ namespace Laboratory7
             RationalNumber num = new RationalNumber();
             num.Numerator = (int)(tmp1.Numerator * tmp2.Denominator - tmp2.Numerator * tmp1.Denominator);
             num.Denominator = tmp1.Denominator * tmp2.Denominator;
-            num.rnumber = tmp1.rnumber - tmp2.rnumber;
             return num;
         }
 
@@ -38,7 +35,6 @@ namespace Laboratory7
             RationalNumber num = new RationalNumber();
             num.Numerator = tmp1.Numerator * tmp2.Numerator;
             num.Denominator = tmp1.Denominator * tmp2.Denominator;
-            num.rnumber = tmp1.rnumber * tmp2.rnumber;
             return num;
         }
 
@@ -47,13 +43,12 @@ namespace Laboratory7
             RationalNumber num = new RationalNumber();
             num.Numerator = (int)(tmp1.Numerator * tmp2.Denominator);
             num.Denominator = (uint)(tmp1.Denominator * tmp2.Numerator);
-            num.rnumber = tmp1.rnumber / tmp2.rnumber;
             return num;
         }
 
         public static bool operator >(RationalNumber tmp1, RationalNumber tmp2)
         {
-            if (tmp1.rnumber > tmp2.rnumber)
+            if (tmp1.Numerator/tmp1.Denominator > tmp2.Numerator/tmp2.Denominator)
             {
                 return true;
             }
@@ -65,7 +60,7 @@ namespace Laboratory7
 
         public static bool operator <(RationalNumber tmp1, RationalNumber tmp2)
         {
-            if (tmp1.rnumber < tmp2.rnumber)
+            if (tmp1.Numerator / tmp1.Denominator < tmp2.Numerator / tmp2.Denominator)
             {
                 return true;
             }
@@ -77,7 +72,7 @@ namespace Laboratory7
 
         public static bool operator >=(RationalNumber tmp1, RationalNumber tmp2)
         {
-            if (tmp1.rnumber >= tmp2.rnumber)
+            if (tmp1.Numerator / tmp1.Denominator >= tmp2.Numerator / tmp2.Denominator)
             {
                 return true;
             }
@@ -89,7 +84,7 @@ namespace Laboratory7
 
         public static bool operator <=(RationalNumber tmp1, RationalNumber tmp2)
         {
-            if (tmp1.rnumber <= tmp2.rnumber)
+            if (tmp1.Numerator / tmp1.Denominator <= tmp2.Numerator / tmp2.Denominator)
             {
                 return true;
             }
@@ -101,7 +96,7 @@ namespace Laboratory7
 
         public static bool operator ==(RationalNumber tmp1, RationalNumber tmp2)
         {
-            if (tmp1.rnumber == tmp2.rnumber)
+            if (tmp1.Numerator / tmp1.Denominator == tmp2.Numerator / tmp2.Denominator)
             {
                 return true;
             }
@@ -113,7 +108,7 @@ namespace Laboratory7
 
         public static bool operator !=(RationalNumber tmp1, RationalNumber tmp2)
         {
-            if (tmp1.rnumber != tmp2.rnumber)
+            if (tmp1.Numerator / tmp1.Denominator != tmp2.Numerator / tmp2.Denominator)
             {
                 return true;
             }
@@ -130,17 +125,17 @@ namespace Laboratory7
 
         public override int GetHashCode()
         {
-            return rnumber.GetHashCode();
+            return (Numerator/Denominator).GetHashCode();
         }
 
         public static implicit operator int(RationalNumber num)
         {
-            return (int)num.rnumber;
+            return (int)(num.Numerator/num.Denominator);
         }
 
         public static implicit operator double(RationalNumber num)
         {
-            return num.rnumber;
+            return (num.Numerator/num.Denominator);
         }
 
         bool IEquatable<RationalNumber>.Equals(RationalNumber num)
@@ -157,11 +152,13 @@ namespace Laboratory7
 
         int IComparable.CompareTo(object obj)
         {
-            if (this.rnumber > ((RationalNumber)obj).rnumber)
+            if ((this.Numerator/this.Denominator) > 
+                (((RationalNumber)obj).Numerator/((RationalNumber)obj).Denominator))
             {
                 return 1;
             }
-            if (this.rnumber < ((RationalNumber)obj).rnumber)
+            if ((this.Numerator / this.Denominator) <
+                (((RationalNumber)obj).Numerator / ((RationalNumber)obj).Denominator))
             {
                 return -1;
             }
@@ -173,7 +170,7 @@ namespace Laboratory7
 
         public string NumberString()
         {
-            return $"{rnumber}";
+            return $"{Numerator/Denominator}";
         }
 
         public string FractionString()
@@ -192,9 +189,7 @@ namespace Laboratory7
 
             double a;
             double.TryParse(str, out a);
-            obj.rnumber = a;
-
-
+            
             int count = -1;
             if (a % 10 == 0)
             {
@@ -226,14 +221,12 @@ namespace Laboratory7
 
                 obj.Numerator = int.Parse(arr[0]);
                 obj.Denominator = uint.Parse(arr[1]);
-                obj.rnumber = obj.Numerator / obj.Denominator;
             }
 
             catch
             {
                 obj.Numerator = int.Parse(str);
                 obj.Denominator = 1;
-                obj.rnumber = obj.Numerator / obj.Denominator;
             }
 
             return obj;
