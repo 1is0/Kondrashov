@@ -15,9 +15,6 @@ namespace People
 
         protected string[] hobbies;
         
-        //Свойства для полей классов:
-
-         //сделать автосвойства
 
         public int Age
         {
@@ -106,6 +103,5 @@ namespace People
             }
         }
     }
-
 
 }
