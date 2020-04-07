@@ -22,8 +22,7 @@ namespace university
         //Добавленное в 6 лабораторной
         public virtual void SetScholarship() { }
 
-
-        //Свойства для полей классов:
+        
 
         public int Age
         {

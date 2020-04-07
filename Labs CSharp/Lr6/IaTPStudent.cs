@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace university
 {
-    enum Specialtys
+    enum SpecialtyName
     {
         IaTP = 1,
         CSaN,
@@ -21,93 +21,40 @@ namespace university
     }
 
 
-    class IaTPStudent:Student,IQualif,IComparable
+    class CompetenciesPerson : Student,IStudentAttributes,IComparable
     {
         
 
-        public Specialtys Specialty { get; set; }
+        public SpecialtyName Specialty { get; set; }
         public string GroupNumber { get; set; }
         public string Qualification { get; set; }
         public string Scholarship { get; set; }
 
-        Discipline dis;
+        public Discipline dis;
 
-        public IaTPStudent() : base()
+        public CompetenciesPerson() : base()
         {
-            Specialty = Specialtys.IaTP;
+            Specialty = SpecialtyName.IaTP;
             GroupNumber = "753503";
             dis.DisciplineName = "ISP";
             dis.Hours = 120;
             Qualification = "System Engineer";
             Scholarship = "77,80";
+            hobbies = new string[2];
+            hobbies[0] = "Rubik's cubes solving";
+            hobbies[1] = "Playing table tennis";
         }
 
         public override string ToString()
         {
-            return base.ToString() + "Specialty: " + Specialty + ";" + "Group: " + GroupNumber + ";" + "Discipline: " + dis.DisciplineName + ";"+"\n" + "Hours for input discipline: " + dis.Hours+";"+"Qualification: "+Qualification+";"+"Scholarship: "+Scholarship+"\n";
-        }
-
-
-        public void SetParametrs()
-        {
-            Console.Write("Enter name: ");
-            Name = Console.ReadLine();
-
-            Console.Write("Enter age: ");
-            Age = ValidateAge();
-
-            Console.Write("Enter height in meters: ");
-            HeightMeters = CheckDouble();
-
-            Console.Write("Enter weight in kilograms: ");
-            WeightKilos = CheckDouble();
-
-            Console.Write("Enter city where he/her was born: ");
-            CityBorn = Console.ReadLine();
-
-            SetId();
-
-            Console.Write("Enter faculty: ");
-            Faculty = Console.ReadLine();
-
-            Console.Write("Enter course: ");
-            Course = CheckInt();
-
-            Console.Write("Enter specialty(1-IaTP, 2-CSaN, 3-ITS, 4-ECS): ");
-            Specialty = (Specialtys)ValidateSpeciality();
-
-            Console.Write("Enter group number: ");
-            GroupNumber = Console.ReadLine();
-
-            Console.Write("Enter qualification: ");
-            Qualification = Console.ReadLine();
-
-            Console.Write("Enter discipline: ");
-            dis.DisciplineName = Console.ReadLine();
-
-            Console.Write("Enter hours for this discipline: ");
-            dis.Hours = CheckInt();
-
-            Console.Write("Enter scholarship: ");
-            Scholarship = Console.ReadLine();
-        }
-
-        //добавленное в 6 лабораторной    
-        public static void SetArray(IaTPStudent[] list)
-        {
-            for (int i = 0; i < list.Length; i++)
+            string str=" ";
+            for(int i=0;i<hobbies.Length;i++)
             {
-                list[i] = new IaTPStudent();
-                list[i].SetParametrs();
-                Console.WriteLine();
+                str = str + hobbies[i] + ";";
             }
-
-            Console.WriteLine("List of stusents:");
-            for (int i = 0; i < list.Length; i++)
-            {
-                Console.WriteLine(list[i]);
-            }
+            return base.ToString() + "Specialty: " + Specialty + ";" + "Group: " + GroupNumber + ";" + "Discipline: " + dis.DisciplineName + ";"+"\n" + "Hours for input discipline: " + dis.Hours+";"+"Qualification: "+Qualification+";"+"Scholarship: "+Scholarship+";"+"Students hobbies: "+str+"\n";
         }
+        
 
         public override void DiplomaType()
         {
@@ -121,11 +68,11 @@ namespace university
  
         int IComparable.CompareTo(object obj)
         {
-            if (this.Age > ((IaTPStudent)obj).Course)
+            if (this.Age > ((CompetenciesPerson)obj).Course)
             {
                 return 1;
             }
-            if (this.Age < ((IaTPStudent)obj).Course)
+            if (this.Age < ((CompetenciesPerson)obj).Course)
             {
                 return -1;
             }

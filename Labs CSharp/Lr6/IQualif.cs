@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace university
 {
-    interface IQualif
+    interface IStudentAttributes
     {
         void DiplomaType();
 
