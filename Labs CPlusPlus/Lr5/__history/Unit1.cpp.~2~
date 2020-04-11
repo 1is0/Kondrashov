@@ -1,0 +1,39 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+#include "Unit2.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+List qu1;
+List qu2;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	srand(time(0));
+	int quantity = 10;
+	int rand1;
+	for (int i = 0; i < quantity; i++)
+	{
+
+		qu1.Add(rand() % 200 - 100);
+		rand1=rand() % 200 - 100;
+		ListBox1->Items->Add(IntToStr(i + 1) + ".  "+rand1);  //+ qu1->GetNum(i));
+	}
+	//Edit1->Text = qu1->GetMax();
+	//Edit2->Text = qu1->GetMin();
+	//Edit3->Text = qu2->GetMax();
+	//Edit4->Text = qu2->GetMin();
+	//Button2->Enabled = True;
+}
+//---------------------------------------------------------------------------
+

@@ -1,0 +1,57 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit2H
+#define Unit2H
+#include <string>
+class Node
+{
+  public:
+	int numbers;
+	Node *next;//указатель на следующий узел
+	Node *prev;
+	Node()
+	{
+		numbers=0;
+		next=NULL;
+		prev=NULL;
+	}
+};
+
+class List
+{
+   public:
+	Node *head,*tail,*min,*max;
+	int size,current;
+
+	//Конструктор:
+	List()
+	{
+		head=NULL;
+		tail=NULL;
+		head->next=NULL;
+		head->prev=NULL;
+		size=0;
+		current=-1;
+	}
+
+	//Деструктор:
+	~List()
+	{
+		while (head!=NULL)          //Пока по адресу не пусто
+		{
+			Node *temp = head->next;   //Временная переменная для хранения адреса следующего элемента
+			delete head;                //Освобождаем адрес обозначающий начало
+			head = temp;                  //Меняем адрес на следующий
+		}
+	}
+
+	//void CreateQueue();//Передаем аргументы для изменения полей
+	void Add(int);
+	int GetNum(int);
+	int GetMax();
+	int GetMin();
+	void DeleteQueue();
+};
+
+//---------------------------------------------------------------------------
+#endif
