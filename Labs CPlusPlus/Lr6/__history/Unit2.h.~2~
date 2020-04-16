@@ -1,0 +1,34 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit2H
+#define Unit2H
+#include <string>
+
+class Node
+{
+public:
+	std::string bank;
+	int cvc;
+	Node* left;
+	Node* right;
+};
+
+class Tree
+{
+public:
+	Node* root;
+	int nodescol;
+
+	Tree()
+	{
+		root = NULL;
+		nodescol = 0;
+	}
+
+	Node* TreeCreate(std::string ,int);
+	Node* TreeAdd(Node* ,std::string,int);
+	//void PrintTree(Node*, TreeView1*, int&);
+};
+
+//---------------------------------------------------------------------------
+#endif
