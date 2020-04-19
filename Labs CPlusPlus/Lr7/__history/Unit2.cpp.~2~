@@ -1,0 +1,50 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "Unit2.h"
+
+int HashTable :: Hash(int num)
+{
+	if(!num)
+	{
+		 return num % size + 10;
+	}
+	else
+	{
+		 return num % size;
+	}
+}
+
+void HashTable :: Create()
+{
+	elements = new Stack* [size];
+	for(int i = 0; i < size; i++)
+	{
+		elements[i] = new Stack[size];
+		elements[i] = NULL;
+	}
+}
+
+void HashTable :: Add(int n, int m)
+{
+	int i = Hash(n);
+	if(!elements[i])
+	{
+		elements[i] = new Stack(n, m);
+	}
+	else
+	{
+		Stack *temp = elements[i];
+		while(temp->next)
+		{
+			 temp = temp->next;
+		}
+		temp->next = new HashNode(n, m);
+		//elements[i]->nodes++;
+	}
+}
+//---------------------------------------------------------------------------
+
+#pragma package(smart_init)

@@ -1,0 +1,174 @@
+//---------------------------------------------------------------------------
+
+
+#pragma hdrstop
+
+#include "Unit2.h"
+
+int HashTable :: Hash(int numer)
+{
+	if(!numer)
+	{
+		 return numer % size + 10;
+	}
+	else
+	{
+		 return numer % size;
+	}
+}
+
+void HashTable :: CreateHash()
+{
+	elements = (Stack**)calloc(size, sizeof(Stack));
+	for(int i = 0; i < size; i++)
+	{
+		elements[i] = (Stack*)calloc(1, sizeof(Stack));
+		elements[i] = NULL;
+	}
+}
+
+void HashTable :: Add(int n, int m)
+{
+	int i = Hash(n);
+	if(!elements[i])
+	{
+		elements[i] = new Stack(n, m);
+	}
+	else
+	{
+		Stack *temp = elements[i];
+		while(temp->next)
+		{
+			 temp = temp->next;
+		}
+		temp->next = new Stack(n, m);
+	}
+}
+
+void HashTable :: DeleteHash(TMemo *Memo, int numer)
+{
+	int i = Hash(numer);
+	int marker = 0;
+	Stack *del, *temp = NULL;
+	for(del = elements[i]; del; del = del->next)
+	{
+		if(del->key == numer)
+		{
+			if(!temp)
+			{
+				elements[i] = del->next;
+			}
+			else
+			{
+				temp->next = del->next;
+			}
+			del = NULL;
+			marker++;
+			break;
+		}
+		temp = del;
+	}
+	if(!marker)
+	{
+		ShowMessage("Нет элемента с таким ключом");
+	}
+}
+
+void HashTable :: ShowHash(TMemo *Memo)
+{
+	Memo->Lines->Clear();
+	Memo->Lines->Add("Хэш-таблица:");
+	Memo->Lines->Add("\n");
+	for(int  i = 0; i < size; i++)
+	{
+		if(elements[i])
+		{
+			AnsiString str = "(" + IntToStr(elements[i]->key) + ", " + IntToStr(elements[i]->number) + ")";
+			if(!elements[i]->next)
+			{
+				Memo->Lines->Add(IntToStr(i+1) + ": " + str);
+			}
+			else
+			{
+				AnsiString s = "";
+				Stack *temp = elements[i]->next;
+				while(temp)
+				{
+					s += "   (" + IntToStr(temp->key) +", " + IntToStr(temp->number) + ")";
+					temp = temp->next;
+				}
+				str += s;
+				Memo->Lines->Add(IntToStr(i+1) + ": " + str);
+			}
+		}
+	}
+	Memo->Lines->Add("\n");
+}
+
+Stack* HashTable :: SearchElement(int numer)
+{
+	int i = Hash(numer);
+	Stack* result=NULL;
+
+	if(!elements[i])
+	{
+		ShowMessage("Нет элемента с таким ключом");
+		return NULL;
+	}
+	if(elements[i]->key == numer)
+	{
+		result=elements[i];
+	}
+	else
+	{
+		int marker = 0;
+		Stack *temp = NULL;
+		for(temp = elements[i]->next; temp; temp = temp->next)
+		{
+			if(temp->key == numer)
+			{
+				result=temp;
+				break;
+			}
+		}
+	}
+
+	return result;
+}
+
+int HashTable :: FindStackNumber()
+{
+	int min = 100000;
+	int stacknum = 0;
+	for(int  i = 0; i < size; i++)
+	{
+		if(elements[i])
+		{
+			if(!elements[i]->next)
+			{
+				if(elements[i]->key < min)
+				{
+					min = elements[i]->key;
+					stacknum = i;
+				}
+			}
+			else
+			{
+				Stack *temp = elements[i]->next;
+				while(temp)
+				{
+					if(temp->key < min)
+					{
+						min = temp->key;
+						stacknum = i;
+					}
+					temp = temp->next;
+				}
+			}
+		}
+	}
+	return stacknum + 1;
+}
+//---------------------------------------------------------------------------
+
+#pragma package(smart_init)

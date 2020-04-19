@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.495,C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr7\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.166,=C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.495,C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.dfm=C:\PTUIR\2 semestr\OAiP\Projects\Lr7\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.126,=C:\Users\ivank\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.601,C:\Users\ivank\Documents\RAD Studio\Projects\Project1.cbproj=C:\PTUIR\2 semestr\OAiP\Projects\Lr7\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.723,=C:\Users\ivank\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.495,C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr7\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.380,C:\Users\ivank\Documents\RAD Studio\Projects\Unit2.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr7\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.380,C:\Users\ivank\Documents\RAD Studio\Projects\Unit2.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr7\Unit2.cpp</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,33 @@
+//---------------------------------------------------------------------------
+
+#ifndef Unit2H
+#define Unit2H
+#include <string>
+
+class Stack
+{
+	Stack* next;
+	int key;
+	int number;
+
+	Stack(int k,int n)
+	{
+		next = NULL;
+		key = k;
+		number = n;
+	}
+};
+
+class HashTable
+{
+	const int size = 5;
+
+public:
+	Stack **elements;
+	int Hash(int);
+	void Create();
+	void Add();
+};
+
+//---------------------------------------------------------------------------
+#endif
