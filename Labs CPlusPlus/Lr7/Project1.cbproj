@@ -63,23 +63,22 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
+			<CppCompile Include="HashTableAction.cpp">
+				<Form>Form1</Form>
+				<DependentOn>HashTableAction.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="HashTableCreate.cpp">
+				<DependentOn>HashTableCreate.h</DependentOn>
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="Project1.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<ResFiles Include="Project1.res">
-				<ModuleName>Project1.res</ModuleName>
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
-			<CppCompile Include="Unit1.cpp">
-				<Form>Form1</Form>
-				<DependentOn>Unit1.h</DependentOn>
-				<BuildOrder>2</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="Unit2.cpp">
-				<DependentOn>Unit2.h</DependentOn>
-				<BuildOrder>3</BuildOrder>
-			</CppCompile>
-			<FormResources Include="Unit1.dfm"/>
+			<FormResources Include="HashTableAction.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

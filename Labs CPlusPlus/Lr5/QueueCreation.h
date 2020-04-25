@@ -1,0 +1,82 @@
+//---------------------------------------------------------------------------
+
+#ifndef QueueCreationH
+#define QueueCreationH
+#include <string>
+class Node
+{
+  public:
+	int numbers;
+	Node *next;//указатель на следующий узел
+	Node *prev;
+	Node()
+	{
+		numbers=0;
+		next=NULL;
+		prev=NULL;
+	}
+};
+
+class List
+{
+   public:
+	Node *head,*tail;
+	int size,current,indexMax,indexMin;
+
+	//Конструктор:
+	List()
+	{
+		head=NULL;
+		tail=NULL;
+		size=0;
+		current=-1;
+		indexMax=0;
+		indexMin=0;
+	}
+
+	//Деструктор:
+	~List()
+	{
+		if(head)
+		{
+			head->prev=NULL;
+		}
+		if(tail)
+		{
+			tail->next=NULL;
+		}
+
+
+		while (head!=NULL)          //Пока по адресу не пусто
+		{
+			Node *temp = head->next;   //Временная переменная для хранения адреса следующего элемента
+			delete head;                //Освобождаем адрес обозначающий начало
+			head = temp;                  //Меняем адрес на следующий
+		}
+	}
+
+	//void CreateQueue();//Передаем аргументы для изменения полей
+	void Add(int);
+	int GetNum(int);
+	int GetMax();
+	int GetMin();
+	void DeleteQueue();
+};
+
+class Queue : public List
+{
+  public:
+	Node* currentNode;
+
+	Queue() : List()
+	{
+		currentNode = NULL;
+	}
+
+	void LoopBack();
+	void SetCurrent();
+	int PrintNode();
+};
+
+//---------------------------------------------------------------------------
+#endif

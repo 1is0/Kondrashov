@@ -69,16 +69,16 @@
 			<ResFiles Include="Project1.res">
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
-			<CppCompile Include="Unit1.cpp">
+			<CppCompile Include="TreeAction.cpp">
 				<Form>Form1</Form>
-				<DependentOn>Unit1.h</DependentOn>
+				<DependentOn>TreeAction.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="Unit2.cpp">
-				<DependentOn>Unit2.h</DependentOn>
+			<CppCompile Include="TreeCreation.cpp">
+				<DependentOn>TreeCreation.h</DependentOn>
 				<BuildOrder>3</BuildOrder>
 			</CppCompile>
-			<FormResources Include="Unit1.dfm"/>
+			<FormResources Include="TreeAction.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

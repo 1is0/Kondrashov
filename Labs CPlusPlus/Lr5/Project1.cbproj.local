@@ -1,12 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.230,=C:\Users\ivank\Documents\RAD Studio\Projects\Project1.res</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.156,=C:\PTUIR\2 semestr\OAiP\Projects\test\Unit2.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.141,C:\PTUIR\2 semestr\OAiP\Projects\test\Unit1.dfm=C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.345,C:\Users\ivank\Documents\RAD Studio\Projects\Project1.cbproj=C:\PTUIR\2 semestr\OAiP\Projects\test\Project1.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.614,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Unit2.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.944,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Unit1.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Form.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.270,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.016,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Form.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.016,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Form.dfm=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.944,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Unit1.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Form.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.798,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueCreation.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.265,=C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.141,C:\PTUIR\2 semestr\OAiP\Projects\test\Unit1.cpp=C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.345,C:\PTUIR\2 semestr\OAiP\Projects\test\Project1.cbproj=C:\Users\ivank\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.141,C:\PTUIR\2 semestr\OAiP\Projects\test\Unit1.h=C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.016,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Form.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.141,C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.cpp=C:\PTUIR\2 semestr\OAiP\Projects\test\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.230,=C:\Users\ivank\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.270,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.dfm=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.614,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Unit2.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.141,C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.h=C:\PTUIR\2 semestr\OAiP\Projects\test\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.798,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueCreation.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.156,=C:\PTUIR\2 semestr\OAiP\Projects\test\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.270,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.097,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.h=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.097,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Queue.cpp=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\QueueActions.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.141,C:\Users\ivank\Documents\RAD Studio\Projects\Unit1.dfm=C:\PTUIR\2 semestr\OAiP\Projects\test\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.944,C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Unit1.dfm=C:\PTUIR\2 semestr\OAiP\Projects\Lr5\Form.dfm</Transaction>
   </Transactions>
 </BorlandProject>

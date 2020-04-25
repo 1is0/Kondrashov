@@ -67,19 +67,18 @@
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<ResFiles Include="Project1.res">
-				<ModuleName>Project1.res</ModuleName>
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
-			<CppCompile Include="Unit1.cpp">
+			<CppCompile Include="QueueActions.cpp">
 				<Form>Form1</Form>
-				<DependentOn>Unit1.h</DependentOn>
+				<DependentOn>QueueActions.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="Unit2.cpp">
-				<DependentOn>Unit2.h</DependentOn>
+			<CppCompile Include="QueueCreation.cpp">
+				<DependentOn>QueueCreation.h</DependentOn>
 				<BuildOrder>3</BuildOrder>
 			</CppCompile>
-			<FormResources Include="Unit1.dfm"/>
+			<FormResources Include="QueueActions.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
