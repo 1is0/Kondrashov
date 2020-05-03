@@ -1,0 +1,59 @@
+double prefix()
+{
+  stack<char> ops;   // Стек отложенных значений op.
+  stack<double> xs;  // Стек отложенных значений x.
+  stack<bool> has_x; // Стек признака "операция уже имеет первый операнд в стеке xs".
+
+  double y = 0.; // Второй операнд.
+  do
+  {
+    char op;
+    if (cin >> op)
+    {
+      if (strchr("+-*/", op)) // Считали знак операции.
+      {
+        ops.push(op);
+        has_x.push(false); // Новая операция -- ещё нет ни одного операнда.
+      }
+      else // не знак операции -- вернуть считанный символ и прочитать число
+      {
+        cin.unget();
+        if (cin >> y) // Считали число.
+        {
+          // Можно выполнить "свёртку" операций, для которых есть первый операнд.
+          while (!ops.empty() && has_x.top())
+          {
+            // Извлечь из стека первый аргумент операции.
+            const auto x = xs.top();
+            xs.pop();
+
+            switch (ops.top())
+            {
+            case '+': y = x + y; break;
+            case '-': y = x - y; break;
+            case '*': y = x * y; break;
+            case '/': y = x / y; break;
+            }
+            // Убрать вычисленную операцию.
+            ops.pop();
+            has_x.pop();
+          }
+
+          // Получили первый операнд некоторой операции?
+          if (!ops.empty())
+          {
+            has_x.top() = true;
+            xs.push(y);
+          }
+        }
+      }
+    }
+    else
+    {
+      // Ошибка ввода.
+      cerr << "input error\n";
+      break;
+    }
+  } while (!ops.empty()); // Продолжать, пока есть ещё операции.
+  return y;
+}
