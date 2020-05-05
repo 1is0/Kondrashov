@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace university
 {
-    class Student: Man, IStudentAttributes
+    class Student : Man, IStudentAttributes
     {
         public int Course { get; set; }
         public string Faculty { get; set; }
@@ -19,7 +19,7 @@ namespace university
 
         public override string ToString()
         {
-            return base.ToString() + ";"+"\n" + "Faculty: " + Faculty + ";" + "Course: " + Course + ";"+"\n";
+            return base.ToString() + ";" + "\n" + "Faculty: " + Faculty + ";" + "Course: " + Course + ";" + "\n";
         }
 
         public override void DiplomaType()

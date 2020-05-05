@@ -21,9 +21,9 @@ namespace university
     }
 
 
-    class CompetenciesPerson : Student,IStudentAttributes,IComparable
+    class CompetenciesPerson : Student, IStudentAttributes, IComparable
     {
-        
+
 
         public SpecialtyName Specialty { get; set; }
         public string GroupNumber { get; set; }
@@ -47,25 +47,34 @@ namespace university
 
         public override string ToString()
         {
-            string str=" ";
-            for(int i=0;i<hobbies.Length;i++)
+            if (hobbies == null)
             {
-                str = str + hobbies[i] + ";";
+                throw new Exception("Array hobbie isn't filled");
             }
-            return base.ToString() + "Specialty: " + Specialty + ";" + "Group: " + GroupNumber + ";" + "Discipline: " + dis.DisciplineName + ";"+"\n" + "Hours for input discipline: " + dis.Hours+";"+"Qualification: "+Qualification+";"+"Scholarship: "+Scholarship+";"+"Students hobbies: "+str+"\n";
+            else {
+                string str = " ";
+                for (int i = 0; i < hobbies.Length; i++)
+                {
+                    str = str + hobbies[i] + ";";
+                }
+                return base.ToString() + "Specialty: " + Specialty + ";" + "Group: " + GroupNumber + ";" +
+                    "Discipline: " + dis.DisciplineName + ";" + "\n" + "Hours for input discipline: " +
+                    dis.Hours + ";" + "Qualification: " + Qualification + ";" + "Scholarship: " + Scholarship +
+                    ";" + "Students hobbies: " + str + "\n";
+            }
         }
-        
+
 
         public override void DiplomaType()
         {
-            Console.WriteLine("Your qualification is {0}",Qualification);
+            Console.WriteLine("Your qualification is {0}", Qualification);
         }
 
         public override void SetScholarship()
         {
             Console.WriteLine($"Your scholarship is:  {Scholarship}");
         }
- 
+
         int IComparable.CompareTo(object obj)
         {
             if (this.Age > ((CompetenciesPerson)obj).Course)
@@ -87,6 +96,16 @@ namespace university
             return this.MemberwiseClone();
         }
 
-        
+        //добавленное в 8 лабораторной
+
+        public delegate void MessageHandler(string mes);
+        public event MessageHandler StudentInfo;
+
+        public override void SetId() 
+        {
+            base.SetId();
+            StudentInfo?.Invoke("New student added");
+        }
+
     }
 }

@@ -22,7 +22,7 @@ namespace university
         //Добавленное в 6 лабораторной
         public virtual void SetScholarship() { }
 
-        
+
 
         public int Age
         {
@@ -67,7 +67,7 @@ namespace university
 
         public override string ToString()
         {
-            string info = "Name: " + Name + ";" + " Age: " + age + ";" + " Height: " + HeightMeters + ";"+"\n" + " Weight: " + WeightKilos + ";" + " Hometown: " + CityBorn + ";" + "ID: " + id;
+            string info = "Name: " + Name + ";" + " Age: " + age + ";" + " Height: " + HeightMeters + ";" + "\n" + " Weight: " + WeightKilos + ";" + " Hometown: " + CityBorn + ";" + "ID: " + id;
             return info;
 
         }
@@ -114,7 +114,7 @@ namespace university
 
         public abstract void DiplomaType();
 
-        public void SetId()
+        public virtual void SetId()
         {
             id = Guid.NewGuid().ToString();
         }

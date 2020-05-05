@@ -9,7 +9,7 @@ namespace university
     interface IStudentAttributes
     {
         void DiplomaType();
-
+        void SetId();
         void SetScholarship();
     }
 }

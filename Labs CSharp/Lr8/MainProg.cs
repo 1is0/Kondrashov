@@ -58,7 +58,7 @@ namespace university
         {
             for (int i = 0; i < list.Length; i++)
             {
-                list[i] = new CompetenciesPerson(); 
+                list[i] = new CompetenciesPerson();
                 SetParameters(list[i]);
                 Console.WriteLine();
             }
@@ -114,13 +114,23 @@ namespace university
 
             return b;
         }
-
         static void Main()
         {
             CompetenciesPerson std = new CompetenciesPerson();
             Console.WriteLine("Info about default student : ");
-            Console.WriteLine(std);
+            try
+            {
+                Console.WriteLine(std);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("\nException testing: "+ex.Message+"\n");
+            }
             Console.WriteLine("\n");
+            //добавленное в 8 лабораторной
+
+            std.StudentInfo += DisplayInfo;
+            std.SetId();
 
 
             Console.WriteLine("Type info for new students:");
@@ -130,9 +140,18 @@ namespace university
             for (int j = 0; j < list.Length; j++)
             {
                 list[j].MassIndex();
+                Console.WriteLine("Event tested: ");
+                list[j].StudentInfo += delegate (string mes)
+                {
+                    Console.WriteLine("Anonim expression: " + mes);
+                };
+                
+                list[j].StudentInfo += mes => Console.WriteLine("Lambda expression: " + mes);
+                Console.WriteLine();
                 list[j].SetId();
             }
 
+            Console.WriteLine();
             Console.WriteLine("Sorted by course list:");
             Array.Sort(list);
             foreach (CompetenciesPerson s in list)
@@ -157,11 +176,13 @@ namespace university
 
             Console.WriteLine();
 
-
-
-            
-
             Console.ReadKey();
         }
+
+        public static void DisplayInfo(string mes)
+        {
+            Console.WriteLine("Event: "+mes);
+        }
+
     }
 }
