@@ -1,0 +1,50 @@
+﻿<Window x:Class="Wpftest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpftest"
+        mc:Ignorable="d"
+        Title="Tests with C#" Height="616" Width="1000" FontStyle="Normal" FontSize="20" >
+    <Grid RenderTransformOrigin="0,0" Margin="0,0,0,0" Background="Aquamarine">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="319*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="ComboMain" HorizontalAlignment="Left" Height="35" Margin="15,65,0,0" VerticalAlignment="Top" Width="305">
+        </ComboBox>
+        <Label Content="Номер теста:" HorizontalAlignment="Left" Height="45" Margin="20,16,0,0" VerticalAlignment="Top" Width="235"/>
+        <Button x:Name="Button1" Content="Начать тест" HorizontalAlignment="Left" Margin="335,66,0,0" VerticalAlignment="Top" Width="305" Click="Button1_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="Button2" Content="Завершить тест" HorizontalAlignment="Left" Margin="60,66,0,0" VerticalAlignment="Top" Width="305" Grid.ColumnSpan="2" Grid.Column="1" Click="Button2_Click"/>
+        <ListBox x:Name="TaskList" HorizontalAlignment="Left" Height="400" Margin="15,160,0,0" VerticalAlignment="Top" Width="545" SelectionChanged="TaskList_SelectionChanged" BorderBrush="#FFB3AEAB">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="16" Text="{Binding Path=TaskId}" HorizontalAlignment="Left" Background="BlanchedAlmond" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="AnswerList" HorizontalAlignment="Left" Height="180" Margin="20,161,0,0" VerticalAlignment="Top" Width="340" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.Column="1" SelectionChanged="AnswerList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="16" Text="{Binding Path=Answer}" HorizontalAlignment="Left" Background="Beige" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.749"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.654"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <Label Content="Список вопросов:" HorizontalAlignment="Left" Margin="20,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="Варианты ответов:" Grid.Column="1" HorizontalAlignment="Left" Margin="25,116,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Name="lblTime"  Grid.Column="2" Margin="75.333,445,0,0" VerticalAlignment="Top" FontSize="48" Foreground="#FFE81CE3" Height="75" HorizontalAlignment="Left" Width="205"/>
+    </Grid>
+</Window>
