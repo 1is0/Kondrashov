@@ -20,6 +20,8 @@ namespace Wpftest
         //Коллекция для вывода ответов теста в AnswerList
         public ObservableCollection<Answers> listOfAnswers { get; set; }
 
+        bool isRight = false;
+
         ConnectionToDatabase model = new ConnectionToDatabase();
 
 
@@ -61,6 +63,7 @@ namespace Wpftest
             Button1.IsEnabled = false;
             Button2.IsEnabled = true;
             ComboMain.IsEnabled = false;
+            isRight = false;
 
             var selectedItem = ComboMain.SelectedItem;
             if (selectedItem != null)
@@ -96,6 +99,11 @@ namespace Wpftest
         {
             timeForTest = timeForTest.Subtract(TimeSpan.FromSeconds(1));
             lblTime.Content = timeForTest.ToString();
+            TimeSpan check = new TimeSpan(0, 0, 0);
+            if(timeForTest == check)
+            {
+                Button2.Click += Button2_Click;
+            }
         }
 
         private void TaskList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -128,7 +136,7 @@ namespace Wpftest
 
                 AnswerList.ItemsSource = listOfAnswers;
 
-                if (task.UserAnswer != -1)
+                if (task.UserAnswer != -1 || isRight==true)
                 {
                     timerOne = new DispatcherTimer();
                     timerOne.Interval = TimeSpan.FromMilliseconds(10);
@@ -143,8 +151,16 @@ namespace Wpftest
             Tasks task = (Tasks)TaskList.SelectedItem;
             if (task != null)
             {
-                ListBoxItem lbi2 = (ListBoxItem)AnswerList.ItemContainerGenerator.ContainerFromIndex(task.UserAnswer - 1);
-                lbi2.Foreground = Brushes.Blue;
+                if (task.UserAnswer != -1)
+                {
+                    ListBoxItem lbi2 = (ListBoxItem)AnswerList.ItemContainerGenerator.ContainerFromIndex(task.UserAnswer - 1);
+                    lbi2.Foreground = Brushes.Blue;
+                }
+            }
+            if(isRight == true)
+            {                
+                ListBoxItem lbi2 = (ListBoxItem)AnswerList.ItemContainerGenerator.ContainerFromIndex(task.CorrectAnswer - 1);
+                lbi2.Foreground = Brushes.Green;
             }
             timerOne.Stop();
         }
@@ -182,6 +198,7 @@ namespace Wpftest
             int i = 0;
             int tempAnswer = 0;
             int nonAnswer = 0;
+            isRight = true;
             foreach (Object obj in listOfTasks)
             {
                 Tasks task = (Tasks)obj;
