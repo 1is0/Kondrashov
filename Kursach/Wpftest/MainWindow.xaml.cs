@@ -102,7 +102,7 @@ namespace Wpftest
             TimeSpan check = new TimeSpan(0, 0, 0);
             if(timeForTest == check)
             {
-                Button2.Click += Button2_Click;
+                Button2_Click(sender,null);
             }
         }
 
